@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Wave from "react-wavify";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div className="page">
 
-export default App
+      {/* Left Navigation */}
+      <nav className="sidebar">
+        <ul>
+          <li>me</li>
+          <li>experience</li>
+          <li>bookshelf</li>
+          <li>art</li>
+          <li>contact</li>
+        </ul>
+      </nav>
+
+      {/* Main Intro */}
+      <div className="intro">
+        <h1>
+          hi! <span>i’m myrah</span>
+        </h1>
+        <p>computer science @ TMU</p>
+      </div>
+
+      <div>
+        <h3>i like making things</h3>
+
+      </div>
+
+      {/* Footer Wave */}
+      <Wave
+        fill="#49b7f2"
+        paused={false}
+        className="wave"
+        options={{
+          height: 80,
+          amplitude: 40,
+          speed: 0.2,
+          points: 3
+        }}
+      />
+
+    </div>
+  );
+};
+
+export default App;
