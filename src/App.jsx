@@ -1,11 +1,11 @@
 import React from "react";
 import Wave from "react-wavify";
+import WindowBox from "./components/WindowBox";
 
 const App = () => {
   return (
     <div className="page">
 
-      {/* Left Navigation */}
       <nav className="sidebar">
         <ul>
           <li>me</li>
@@ -16,20 +16,27 @@ const App = () => {
         </ul>
       </nav>
 
-      {/* Main Intro */}
-      <div className="intro">
-        <h1>
-          hi! <span>i’m myrah</span>
-        </h1>
+      <WindowBox>
+        <h1>hi! i’m myrah</h1>
         <p>computer science @ TMU</p>
-      </div>
 
-      <div>
-        <h3>i like making things</h3>
+        <h3 style={{ color: "red" }}>i like making cool things</h3>
 
-      </div>
+        <ul>
+          <li>2 years of software dev experience with ONgov and CANgov</li>
+          <li>currently participating in ibz chair competition</li>
+          <li>avid writer and reader</li>
+          <li>miffy enthusiast</li>
+        </ul>
 
-      {/* Footer Wave */}
+        <h3>⭐ projects</h3>
+
+        <div className="projects">
+          <div className="project-box"></div>
+          <div className="project-box"></div>
+        </div>
+      </WindowBox>
+
       <Wave
         fill="#49b7f2"
         paused={false}
