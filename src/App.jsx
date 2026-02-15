@@ -5,49 +5,47 @@ import WindowBox from "./components/WindowBox";
 const App = () => {
   return (
     <div className="page">
-
-      <nav className="sidebar">
-        <ul>
-          <li>me</li>
-          <li>experience</li>
-          <li>bookshelf</li>
-          <li>art</li>
-          <li>contact</li>
-        </ul>
-      </nav>
-
-      <WindowBox>
-        <h1>hi! i’m myrah</h1>
-        <p>computer science @ TMU</p>
-
-        <h3 style={{ color: "red" }}>i like making cool things</h3>
-
-        <ul>
-          <li>2 years of software dev experience with ONgov and CANgov</li>
-          <li>currently participating in ibz chair competition</li>
-          <li>avid writer and reader</li>
-          <li>miffy enthusiast</li>
-        </ul>
-
-        <h3>⭐ projects</h3>
-
-        <div className="projects">
-          <div className="project-box"></div>
-          <div className="project-box"></div>
+  
+      <div className="main">
+        
+        <div className="intro">
+          <h1>hi! i’m <span className="name">myrah</span></h1>
+          <p>computer science @ TMU</p>
         </div>
-      </WindowBox>
 
-      <Wave
-        fill="#49b7f2"
-        paused={false}
-        className="wave"
-        options={{
-          height: 80,
-          amplitude: 40,
-          speed: 0.2,
-          points: 3
-        }}
-      />
+        {/* INSIDE THE WINDOW */}
+        <WindowBox>
+          
+         <div className="about"> <img src="src/assets/miffy.jpg" alt="miffy" className="miffy" /> 
+          <div className="about-text"> <h3>i like making cool things</h3> 
+            <ul> 
+              <li>2 years of software dev experience with <span className="highlight">ONgov</span> and <span className="highlight">CANgov</span></li> 
+              <li>currently participating in ibz chair competition</li> <li>avid writer and reader</li>
+              <li>miffy enthusiast</li> 
+            </ul> 
+          </div> 
+         </div>
+
+      <div className="projects-header"> <img src="src/assets/star.jpg" alt="star" className="star" /> <h3>projects</h3> </div>
+          <div className="projects">
+            <div className="project-box"></div>
+            <div className="project-box"></div>
+             <div className="project-box"></div>
+            <div className="project-box"></div>
+             <div className="project-box"></div>
+            <div className="project-box"></div>
+          </div>
+        </WindowBox>
+      </div>
+
+      <footer className="dock">
+        <div className="dock-item">🏠</div>
+        <div className="dock-item">💼</div>
+        <div className="dock-item">📚</div>
+        <div className="dock-item">🎨</div>
+        <div className="dock-item">✉️</div>
+      </footer>
+
 
     </div>
   );
