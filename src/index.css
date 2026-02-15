@@ -1,7 +1,10 @@
 body {
   font-family: "Zen Maru Gothic", sans-serif;
   margin: 0;
-  background: #fdfdfd;
+  background:
+    linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
 .name{
@@ -155,29 +158,31 @@ body {
 .projects-header { display: flex; align-items: center; gap: 8px; /* space between star + text */ margin-top: 20px; } .star { width: 22px; /* adjust to match your screenshot */ height: 22px; object-fit: contain; }
 
 /* Dock */
-.dock {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-
-  display: flex;
-  gap: 18px;
-  padding: 14px 24px;
-
-  background: rgba(240, 240, 240, 0.8);
-  backdrop-filter: blur(12px);
-
-  border-radius: 30px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+.dock { 
+  position: fixed; 
+  bottom: 40px; left: 50%; 
+  transform: translateX(-50%); 
+  display: flex; gap: 32px; 
+  padding: 22px 36px; 
+  background: rgba(255,255,255,0.55); 
+  backdrop-filter: blur(20px); 
+  border: 1px solid rgba(0,0,0,0.15); 
+  border-radius: 50px; 
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
 }
 
-.dock-item {
-  font-size: 22px;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
 
-.dock-item:hover {
-  transform: translateY(-8px) scale(1.15);
-}
+
+.dock-item img { height: 60px; /* ~75% of the dock height */ width: auto; object-fit: contain; display: block; }
+
+.dock-item { 
+  cursor: pointer; 
+  transition: transform 0.25s ease; 
+  position: relative;
+} 
+
+.dock-item:hover { transform: translateY(-14px) scale(1.45); }
+
+.dock-item span { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.75); color: white; padding: 4px 10px; border-radius: 6px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+
+.dock-item:hover span { opacity: 1; }
