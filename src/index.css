@@ -31,7 +31,7 @@ body {
   align-items: flex-start;   
   gap: 18px;                 
   margin-bottom: 20px;
-  padding-top: 2vh;;
+  padding-top: 2vh;
 }
 
 .miffy {
@@ -73,40 +73,18 @@ body {
   color: #888;
 }
 
-.sidebar {
-  position: fixed;
-  left: 60px;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin-bottom: 20px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: #666;
-}
-
-.sidebar li:hover {
-  transform: translateX(8px);
-  color: #49b7f2;
-}
-
-
+/* Window base */
 .window {
- max-width: 700px; width: 90%;
+  max-width: 700px;
+  width: 90%;
   height: 450px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  animation: window-pop 0.22s ease-out;
 }
 
 .window-header {
@@ -140,6 +118,29 @@ body {
   margin-bottom: 12px;
 }
 
+/* Fullscreen window */
+.window-fullscreen {
+  position: fixed !important;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  height: calc(100vh - 80px);
+  border-radius: 16px;
+}
+
+/* Opening animation */
+@keyframes window-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* Projects */
 .projects {
   display: grid;
@@ -155,25 +156,42 @@ body {
   background: #fafafa;
 }
 
-.projects-header { display: flex; align-items: center; gap: 8px; /* space between star + text */ margin-top: 20px; } .star { width: 22px; /* adjust to match your screenshot */ height: 22px; object-fit: contain; }
+.projects-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.star {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
 
 /* Dock */
 .dock { 
   position: fixed; 
-  bottom: 40px; left: 50%; 
+  bottom: 40px;
+  left: 50%; 
   transform: translateX(-50%); 
-  display: flex; gap: 32px; 
+  display: flex;
+  gap: 32px; 
   padding: 22px 36px; 
   background: rgba(255,255,255,0.55); 
   backdrop-filter: blur(20px); 
   border: 1px solid rgba(0,0,0,0.15); 
   border-radius: 50px; 
   box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
+  z-index: 999;
 }
 
-
-
-.dock-item img { height: 60px; /* ~75% of the dock height */ width: auto; object-fit: contain; display: block; }
+.dock-item img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
 
 .dock-item { 
   cursor: pointer; 
@@ -181,8 +199,68 @@ body {
   position: relative;
 } 
 
-.dock-item:hover { transform: translateY(-14px) scale(1.45); }
+.dock-item:hover {
+  transform: translateY(-14px) scale(1.45);
+}
 
-.dock-item span { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.75); color: white; padding: 4px 10px; border-radius: 6px; font-size: 13px; opacity: 0; pointer-events: none; transition: opacity 0.2s ease; }
+.dock-item span {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
 
-.dock-item:hover span { opacity: 1; }
+.dock-item:hover span {
+  opacity: 1;
+}
+
+/* Dock bounce animation */
+.dock-item.bounce {
+  animation: dock-bounce 0.4s ease-out;
+}
+
+@keyframes dock-bounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-10px); }
+  60%  { transform: translateY(4px); }
+  100% { transform: translateY(0); }
+}
+
+/* Menu bar */
+.menu-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(18px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-size: 13px;
+  z-index: 1000;
+}
+
+.menu-left,
+.menu-right {
+  display: flex;
+  gap: 12px;
+}
+
+.menu-item {
+  color: #444;
+}
+
+.menu-logo {
+  font-size: 16px;
+}
