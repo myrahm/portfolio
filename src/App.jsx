@@ -1,56 +1,35 @@
-import React from "react";
-import Wave from "react-wavify";
-import WindowBox from "./components/WindowBox";
+import { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './index.css'
+import Sidenav from './components/Sidenav'
+import Home from './pages/Home'
+import Experience from './pages/Experience'
+import Projects from './pages/Projects'
+import Books from './pages/Books'
 
-const App = () => {
+export default function App() {
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light')
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
+  const toggleTheme = () => setTheme(t => t === 'light' ? 'dark' : 'light')
+
   return (
-    <div className="page">
-
-      <nav className="sidebar">
-        <ul>
-          <li>me</li>
-          <li>experience</li>
-          <li>bookshelf</li>
-          <li>art</li>
-          <li>contact</li>
-        </ul>
-      </nav>
-
-      <WindowBox>
-        <h1>hi! i’m myrah</h1>
-        <p>computer science @ TMU</p>
-
-        <h3 style={{ color: "red" }}>i like making cool things</h3>
-
-        <ul>
-          <li>2 years of software dev experience with ONgov and CANgov</li>
-          <li>currently participating in ibz chair competition</li>
-          <li>avid writer and reader</li>
-          <li>miffy enthusiast</li>
-        </ul>
-
-        <h3>⭐ projects</h3>
-
-        <div className="projects">
-          <div className="project-box"></div>
-          <div className="project-box"></div>
-        </div>
-      </WindowBox>
-
-      <Wave
-        fill="#49b7f2"
-        paused={false}
-        className="wave"
-        options={{
-          height: 80,
-          amplitude: 40,
-          speed: 0.2,
-          points: 3
-        }}
-      />
-
-    </div>
-  );
-};
-
-export default App;
+    <BrowserRouter>
+      <div className="layout">
+        <Sidenav theme={theme} toggleTheme={toggleTheme} />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/books" element={<Books />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+  )
+}
