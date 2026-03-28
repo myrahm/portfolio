@@ -1,42 +1,31 @@
 import { useState } from 'react'
 
-// Add your project image paths under /public/projects/ e.g. '/projects/pipeline.png'
-// Leave image: null to show a plain text card
 const projects = [
   {
-    title: 'Data Pipeline Automation',
-    description: 'Python ETL pipeline automating extraction, transformation, and loading across multiple government databases. Reduced manual processing time by 40%.',
-    tags: ['Python', 'SQL', 'Docker', 'AWS'],
-    github: 'https://github.com/myrahm',
-    lang: 'Python',
-    image: null, // e.g. '/projects/pipeline.png'
+    title: 'To-Do Web App',
+    description: 'a containerized n-tier to-do web application using nginx as a reverse proxy for load balancing multiple app instances, built with docker, and deployed to AWS lightsail.',
+    tags: ['Javascript', 'SQL', 'Docker', 'AWS'],
+    github: 'https://github.com/myrahm/cps730-lab3',
+    lang: 'Javascript',
+    image: '/projects/to-do app.png',
     featured: true,
   },
   {
-    title: 'IT Incident Tracker',
-    description: 'Web dashboard for tracking and visualising IT support tickets with analytics. Built for high-volume service desk environments.',
-    tags: ['React', 'SQL', 'Power BI'],
-    github: 'https://github.com/myrahm',
-    lang: 'JavaScript',
-    image: null,
+    title: 'WASM-Demo',
+    description: 'webassembly tech demo for cps730 course',
+    tags: ['WebAssembly', 'Rust', 'HTML'],
+    github: 'https://github.com/myrahm/wasm-demo',
+    lang: 'WebAssembly + React',
+    image: '/projects/wasm.png',
     featured: true,
   },
   {
-    title: 'MongoDB Analytics Dashboard',
-    description: 'Full-stack application for querying MongoDB collections with aggregation pipelines and real-time data exploration.',
-    tags: ['MongoDB', 'Node.js', 'React'],
-    github: 'https://github.com/myrahm',
-    lang: 'JavaScript',
-    image: null,
-    featured: false,
-  },
-  {
-    title: 'Workflow Automator',
-    description: 'Internal tool that automated repetitive administrative workflows, cutting manual effort by 30% across the team.',
-    tags: ['Python', 'Bash', 'REST API'],
-    github: 'https://github.com/myrahm',
+    title: 'Python Webscrapers',
+    description: 'practiced web scraping using Python and BeautifulSoup to extract data from websites and convert unstructured HTML content into structured datasets. wrote scripts to collect, clean, and store data in formats such as CSV and JSON for further analysis.',
+    tags: ['Python', 'BeautifulSoup'],
+    github: 'https://github.com/myrahm/python-webscrapers',
     lang: 'Python',
-    image: null,
+    image: '/projects/webscrapers.png',
     featured: false,
   },
   {
@@ -47,16 +36,6 @@ const projects = [
     lang: 'Shell',
     image: null,
     featured: false,
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'This site. Built with React + Vite. Minimal black & white with vertical nav and dark mode.',
-    tags: ['React', 'Vite', 'CSS'],
-    github: 'https://github.com/myrahm',
-    live: '/',
-    lang: 'JavaScript',
-    image: null,
-    featured: true,
   },
 ]
 
