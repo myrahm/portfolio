@@ -47,7 +47,7 @@ export default function Home() {
 
       {/* About */}
       <p style={{ fontSize: '0.9rem', color: 'var(--text2)', lineHeight: 1.8, marginBottom: '2.5rem', maxWidth: '480px' }}>
-        final-year CS student building thoughtful software. i like systems that are clean, data that makes sense, and code that actually works. currently open to new grad roles.
+        final-year CS student building thoughtful software. i like systems that are clean, data that makes sense, and code that actually works. currently open to new grad roles. miffy enthusiast.
       </p>
 
       {/* Status */}
